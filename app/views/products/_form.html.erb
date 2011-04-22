@@ -5,7 +5,11 @@
 
       <ul>
       <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <% if msg =="Image url is invalid"%>
+			<li>Image must be jpg,gif or png</li>
+		<% else %>
+			<li><%= msg %></li>
+		<% end %>
       <% end %>
       </ul>
     </div>
@@ -15,18 +19,22 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :image_url %><br />
     <%= f.text_field :image_url %>
   </div>
+
   <div class="field">
     <%= f.label :price %><br />
     <%= f.text_field :price %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
