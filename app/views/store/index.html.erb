@@ -1,3 +1,9 @@
+<% if session[:counter] >5 %>
+ u have viewed this page <%= pluralize session[:counter], 'time' %>
+
+   <%else%>
+<%= pluralize session[:counter], 'time' %>
+ <%end%>
 <% notice %>
  <% if notice %>
  <p id= "notice"><%= notice %></p>
@@ -7,12 +13,13 @@
 
 <% @products.each do |prod| %>
 <div class="entry">
-	<%= image_tag(prod.image_url) %>
+	<%= link_to image_tag(prod.image_url),line_items_path(:product_id => prod), :method => :post %>
 	<h3><%= prod.title %></h3>
     <%= sanitize(prod.description) %>
 <div class="price_line">
-	<!-- <span class="price"><%#= sprintf("$%0.02f",prod.price) %></span> -->
+	<!-- <span class="price"><%#= # sprintf("$%0.02f",prod.price) %></span> -->
 	<span class="price"><%= number_to_currency(prod.price) %></span>
+	<%= button_to 'Add to Cart',line_items_path(:product_id => prod), :remote => true %>
 <div>
 </div>
 <% end %>
