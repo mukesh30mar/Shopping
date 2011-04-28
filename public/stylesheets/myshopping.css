@@ -170,3 +170,37 @@
 	border-bottom: 1px dotted #595;
 	margin-bottom: 10px;
 }
+
+
+.myshopping_form fieldset 
+{
+	 background: #efe;
+}
+.myshopping_form legend 
+{
+	color: #dfd; 
+	background: #141;
+	font-family: sans-serif; 
+	padding: 0.2em 1em;
+}
+.myshopping_form label
+{
+	width: 5em; 
+	float: left;
+	text-align: right; 
+	padding-top: 0.2em; 
+	margin-right: 0.1em;
+	display: block;
+}
+.myshopping_form select, .myshopping_form textarea, .myshopping_form input 
+{
+	margin-left: 0.5em;
+}
+.myshopping_form .submit 
+{ 
+	margin-left: 4em;
+}
+.myshopping_form div 
+{
+	margin: 0.5em 0;
+}

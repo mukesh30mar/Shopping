@@ -1,6 +1,15 @@
 class ProductsController < ApplicationController
   # GET /products
   # GET /products.xml
+    
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.xml { render :xml => @product }
+    end
+  end
+
   def index
     @products = Product.all
 
@@ -80,4 +89,6 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+    
 end
